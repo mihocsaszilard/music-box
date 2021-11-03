@@ -1,7 +1,18 @@
 import "./App.scss";
+import MainPage from "./components/MainPage/mainPage";
 
-function MusicBox() {
-  return <div className="App"></div>;
+const user = {
+  id: 1,
+  name: "Peter",
+  age: 20,
+};
+
+function App() {
+  return (
+    <div className="App">
+      <MainPage user={user} />
+    </div>
+  );
 }
 
-export default MusicBox;
+export default App;
