@@ -2,7 +2,7 @@
   "name": "music-box",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mihocsaszilard.github.io/music-box",
+  "public": "public",
   "dependencies": {
     "@emotion/core": "^10.1.1",
     "@emotion/react": "^11.6.0",
