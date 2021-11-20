@@ -8,7 +8,7 @@ After clicking to login button users needs to authorize their Spotify account an
 
 ### Main Page
 <img src="./public/mainpage.PNG"/>
-Users are able to play songs, set shuffle or repeat mode.
+After selecting a playlist users are able to play songs, set shuffle or repeat mode.
 
 # Getting Started with Create React App
 
