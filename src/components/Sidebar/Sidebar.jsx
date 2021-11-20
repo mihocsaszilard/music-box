@@ -6,7 +6,7 @@ import { Search } from "@mui/icons-material";
 import { LibraryMusic } from "@mui/icons-material";
 import { useDataLayerValue } from "../../data/DataLayer";
 
-export default function Sidebar() {
+export default function Sidebar({ spotify }) {
   const [{ playlists }] = useDataLayerValue();
 
   return (
@@ -23,9 +23,16 @@ export default function Sidebar() {
       <br />
       <strong className="sidebar_title">Playlist</strong>
       <hr />
-      {playlists?.item?.map((playlist) => (
-        <SidebarOptions title={playlist.name} />
-      ))}
+      {playlists?.items?.map((playlist) => {
+        return (
+          <SidebarOptions
+            spotify={spotify}
+            title={playlist.name}
+            id={playlist.id}
+            key={playlist.id}
+          />
+        );
+      })}
     </div>
   );
 }
