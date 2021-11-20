@@ -1,10 +1,10 @@
 // the URL where to authenticate using Spotify
 export const authEndpoint = "https://accounts.spotify.com/authorize";
 //states where to take back the user if the Spotify login was successful
-// const redirectUrl = "https://music-box-f6001.web.app/";
+const redirectUrl = "https://music-box-f6001.web.app/";
 
 //development
-const redirectUrl = "http://localhost:3000/";
+// const redirectUrl = "http://localhost:3000/";
 //the Client ID provided by the Spotify Web API
 const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 
