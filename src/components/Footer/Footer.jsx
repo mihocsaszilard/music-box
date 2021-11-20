@@ -4,8 +4,7 @@ import VolumeDownIcon from "@mui/icons-material/VolumeDown";
 import PlayCircleFilledIcon from "@mui/icons-material/PlayCircleFilled";
 import PauseCircleFilledIcon from "@mui/icons-material/PauseCircleFilled";
 import PlaylistPlayIcon from "@mui/icons-material/PlaylistPlay";
-import { Slider } from "@mui/material";
-import { Grid } from "@mui/material";
+import { Slider, Grid } from "@mui/material";
 import ShuffleIcon from "@mui/icons-material/Shuffle";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
@@ -35,6 +34,7 @@ export default function Footer() {
       playing: false,
     });
   };
+
   const setRepeat = () => {
     if (!repeat && shuffle) {
       setShuffle();
@@ -51,7 +51,7 @@ export default function Footer() {
     }
     soundDispatch({
       type: "SET_SHUFFLE",
-      shufle: !shuffle,
+      shuffle: !shuffle,
     });
   };
 
@@ -67,7 +67,7 @@ export default function Footer() {
       if (shuffle) {
         while (true) {
           let randomTrackNumber = Math.floor(
-            Math.random() * track.items.length
+            Math.random() * tracks.items.length
           );
           let randomTrack = tracks.items[randomTrackNumber].track;
           if (track !== randomTrack) {
@@ -116,7 +116,7 @@ export default function Footer() {
     <div className="footer">
       <div className="footer_left">
         <img
-          src={track ? track.album.images[0].url : "0"}
+          src={track ? track.album.images[0].url : ""}
           alt=""
           className="footer_albumLogo"
         />
