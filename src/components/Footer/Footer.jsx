@@ -116,7 +116,11 @@ export default function Footer() {
     <div className="footer">
       <div className="footer_left">
         <img
-          src={track ? track.album.images[0].url : ""}
+          src={
+            track
+              ? track.album.images[0].url
+              : "https://music-b26f.kxcdn.com/wp-content/uploads/2017/06/635963274692858859903160895_spotify-logo-horizontal-black.jpg"
+          }
           alt=""
           className="footer_albumLogo"
         />
