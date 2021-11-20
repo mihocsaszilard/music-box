@@ -7,6 +7,9 @@
   width: 100%;
   background-color: #282828;
   padding: 20px;
+  svg:hover {
+    cursor: pointer;
+  }
 }
 .footer_left {
   flex: 0.3;
