@@ -1,3 +1,16 @@
+# MusicBox
+## a Spotify clone
+
+The application was built with React, after successful login fetching user's data from Spotify API: the name of the user, the profile picture and their playlists.
+
+### Login Page
+<img src="./public/login.PNG"/>
+After clicking to login button users needs to authorize their Spotify account and will be redirected to main page.
+
+### Main Page
+<img src="./public/mainpage.PNG"/>
+Users are able to play songs, set shuffle or repeat mode.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
