@@ -6,7 +6,7 @@ export const authEndpoint = "https://accounts.spotify.com/authorize";
 //development
 const redirectUrl = "http://localhost:3000/";
 //the Client ID provided by the Spotify Web API
-const clientId = "ad05e64df7084139a7a35960c4f9e0c9";
+const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 
 // permissions which need to ask Spotify for
 const scopes = [
