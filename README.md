@@ -1,6 +1,6 @@
 # MusicBox
 
-Spotify clone built with React. After successful login users can access thei data from Spotify API: the name of the user, the profile picture and their playlists.
+Spotify clone built with React hosted on Firebase. After successful login users can access thei data from Spotify API: the name of the user, the profile picture and their playlists.
 
 ### Login Page
 <img src="./public/login.PNG"/>
