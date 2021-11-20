@@ -2,34 +2,73 @@ import React from "react";
 import "./Body.scss";
 import Header from "../Header/Header";
 import { useDataLayerValue } from "../../data/DataLayer";
+import { useSoundLayerValue } from "../../data/SoundLayer";
 import { PlayCircleFilled } from "@mui/icons-material";
+import { PauseCircleFilled } from "@mui/icons-material";
 import { Favorite } from "@mui/icons-material";
 import { MoreHoriz } from "@mui/icons-material";
 import SongRow from "../SongRow/SongRow";
 
 export default function Body({ spotify }) {
-  const [{ discover_weekly }] = useDataLayerValue();
+  const [{ current_playlist, tracks, track }] = useDataLayerValue();
+  const [{ playing, volume }, soundDispatch] = useSoundLayerValue();
+
+  const startPlaying = () => {
+    soundDispatch({
+      type: "SET_PLAYING",
+      playing: true,
+    });
+    soundDispatch({
+      type: "SET_VOLUME",
+      volume: volume / 100,
+    });
+  };
+
+  const stopPlaying = () => {
+    soundDispatch({
+      type: "SET_PLAYING",
+      playing: false,
+    });
+  };
 
   return (
     <div className="body">
       <Header spotify={spotify} />
       <div className="body_info">
-        <img src={discover_weekly?.images[0].url} alt="" />
+        <img
+          src={
+            current_playlist
+              ? current_playlist?.images[0].url
+              : "https://cdn.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_250/https://www.hypebot.com/wp-content/uploads/2020/07/discover-weekly-250x250.png"
+          }
+          alt=""
+        />
         <div className="body_infoText">
           <strong>Playlist</strong>
-          <h2>Discover Weekly</h2>
-          <p>{discover_weekly?.description}</p>
+          <h2>{current_playlist?.name}</h2>
+          <p>{current_playlist?.description}</p>
         </div>
       </div>
       <div className="body_songs">
         <div className="body_icons">
-          <PlayCircleFilled className="body_shuffle" />
+          {playing ? (
+            <PauseCircleFilled
+              className="body_shuffle"
+              onClick={track ? stopPlaying : null}
+            />
+          ) : (
+            <PlayCircleFilled
+              className="body_shuffle"
+              onClick={track ? startPlaying : null}
+              fontSize="large"
+            />
+          )}
           <Favorite fontSize="large" />
           <MoreHoriz />
         </div>
-        {discover_weekly?.tracks.items.map((item) => (
-          <SongRow track={item.track} />
-        ))}
+        {tracks?.items.map((track) => {
+          return <SongRow track={track.track} key={track.track.id} />;
+        })}
       </div>
     </div>
   );
