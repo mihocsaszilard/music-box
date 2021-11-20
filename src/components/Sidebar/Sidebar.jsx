@@ -21,8 +21,9 @@ export default function Sidebar({ spotify }) {
       <SidebarOptions title="Search" Icon={Search} />
       <SidebarOptions title="Your library" Icon={LibraryMusic} />
       <br />
-      <strong className="sidebar_title">Playlist</strong>
+      <strong className="sidebar_title">PLAYLISTS</strong>
       <hr />
+
       {playlists?.items?.map((playlist) => {
         return (
           <SidebarOptions
