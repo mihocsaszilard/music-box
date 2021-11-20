@@ -13,7 +13,7 @@ export default function Header({ spotify }) {
         <Search />
         <input
           className="search"
-          placeholder="Search for Artist, Songs, or Albums"
+          placeholder="Search Songs, or Artists"
           type="text"
         />
       </div>
