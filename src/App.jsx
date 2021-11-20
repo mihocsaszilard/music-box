@@ -29,23 +29,17 @@ function App() {
       spotify.getMe().then((user) => {
         dispatch({
           type: "SET_USER",
-          user,
+          user: user,
         });
       });
       spotify.getUserPlaylists().then((playlists) => {
         dispatch({
           type: "SET_PLAYLISTS",
-          playlists,
-        });
-      });
-      spotify.getPlaylist("37i9dQZF1E34Ucml4HHx1w").then((playlist) => {
-        dispatch({
-          type: "SET_PLAYLISTS",
-          discover_weekly: playlist,
+          playlists: playlists,
         });
       });
     }
-  }); //React Hook useEffect contains a call to 'setToken'. Without a list of dependencies.
+  }, [dispatch, token]); //React Hook useEffect contains a call to 'setToken'. Without a list of dependencies.
   //Solved with adding [] at the end of the Hook - the fuction runs only once
 
   return (
